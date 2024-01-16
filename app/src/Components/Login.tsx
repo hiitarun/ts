@@ -1,6 +1,5 @@
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [name, setName] = useState<string>('');
@@ -23,15 +22,7 @@ function Login() {
         alert('Your details are saved in your local storage');
         console.log(userDetails)
         setSaved(true);
-        goto();
-
     };
-
-
-    const navigate = useNavigate()
-    const goto = ()=>{
-        navigate('/protected')
-    }
 
 
     return (

@@ -1,7 +1,7 @@
 import { Outlet , Navigate} from "react-router-dom";
 import { useState } from "react";
 function Protected (){
-    const [info,setInfo]=useState(true)
+    const [info,setInfo]=useState(false)
 
     const second = ()=>{
         return(
@@ -16,10 +16,11 @@ function Protected (){
 
     return(
         <>
+
         {
             info ? second() : first()
         }
-
+           <h1>jjjj</h1>
         
     
         </>

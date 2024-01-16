@@ -54,10 +54,6 @@ function Second() {
 
 
 
-
-
-
-
   interface Post {
     userId: number;
     id: number;
