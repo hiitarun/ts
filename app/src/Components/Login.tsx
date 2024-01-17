@@ -1,12 +1,19 @@
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+interface LoginProps {
+    onLogin: () => void;
+  }
+
+
+const Login: React.FC<LoginProps> = ({ onLogin }) =>{
     const [name, setName] = useState<string>('');
     const [number, setNumber] = useState<string>('');
     const [email, setEmail] = useState<string>('');
-
-    const[saved,setSaved] = useState<boolean>(false)
+    
+    const navigate = useNavigate()
+  
 
 
     const onSubmit = (event: React.FormEvent) => {
@@ -21,7 +28,9 @@ function Login() {
         localStorage.setItem('userDetails', JSON.stringify(userDetails));
         alert('Your details are saved in your local storage');
         console.log(userDetails)
-        setSaved(true);
+        onLogin();
+        navigate('/protected/second')
+  
     };
 
 
@@ -64,7 +73,7 @@ function Login() {
                 <br />
 
                 <Button variant='contained' type='submit'>
-                    Submit
+                    Go to second Page
                 </Button>
             </form>
         </div>

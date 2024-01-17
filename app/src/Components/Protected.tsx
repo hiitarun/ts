@@ -1,8 +1,13 @@
 import { Outlet , Navigate} from "react-router-dom";
-import { useState } from "react";
-function Protected (){
-    const [info,setInfo]=useState(false)
 
+
+interface ProtectedProps {
+    isLoggedIn: boolean;
+  }
+
+const Protected: React.FC<ProtectedProps> = ({ isLoggedIn }) =>{
+
+   
     const second = ()=>{
         return(
             <Outlet />
@@ -18,9 +23,9 @@ function Protected (){
         <>
 
         {
-            info ? second() : first()
+            isLoggedIn ? second() : first()
         }
-           <h1>jjjj</h1>
+         
         
     
         </>
